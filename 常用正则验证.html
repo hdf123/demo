@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/rem.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+<style>
+	*{
+		margin:0;
+		padding:0;
+		box-sizing: border-box;
+	}
+	div{
+		width:90%; 
+		height:1.5rem;
+		margin:1rem auto 0;
+		display: flex;
+	}
+	div>input{
+		width:80%;
+		height:100%;
+	}
+</style>
+	<body>
+		<div>
+			inp1:<input type="text" id="inp1" onkeyup="num1(this)" placeholder="只能输入含0在内的数字，和两位内的小数" value=""/>
+		</div>
+		<div>
+			inp2:<input type="text" id="inp2" onkeyup="num2(this)" placeholder="只能输入正整数，不能为0" value=""/>
+		</div>
+		<div>
+			<span onclick="num3()">inp3:</span>
+			<input type="text" id="inp3" placeholder="手机号验证" value=""/>
+		</div>
+		<div>
+			<span onclick="num4()">inp4:</span>
+			<input type="text" id="inp4" placeholder="Email地址验证" value=""/>
+		</div>
+		<div>
+			<span onclick="num5()">inp5:</span>
+			<input type="text" id="inp5" placeholder="身份证号验证" value=""/>
+		</div>
+		<div>
+			<span onclick="num6()">inp6:</span>
+			<input type="text" id="inp6" placeholder="密码格式验证" value=""/>
+		</div>
+<script type="text/javascript">
+	function num1(obj){
+		obj.value = obj.value.replace(/[^\d.]/g,""); //清除"数字"和"."以外的字符
+		obj.value = obj.value.replace(/^\./g,""); //验证第一个字符是数字
+		obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3'); //只能输入两个小数，包含0
+	}
+	function num2(obj){//只能输入正整数，不能为0
+		if(obj.value.length==1){
+			obj.value=obj.value.replace(/[^1-9]/g,'')
+		}else{
+			obj.value=obj.value.replace(/\D/g,'')
+		}
+	}
+	function num3(){//手机号验证
+		var inp3=$("#inp3").val();
+		var df=/^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;
+		df.test(inp3)?func():funs();
+		function func(){
+			alert("手机号输入正确！")
+		}	
+		function funs(){
+			alert("手机号输入错误！");
+			$("#inp3").val("")
+		}
+	}
+	function num4(){//Email地址
+		var inp4=$("#inp4").val();
+		var df=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+		df.test(inp4)?func():funs();
+		function func(){
+			alert("Email输入正确！")
+		}	
+		function funs(){
+			alert("Email输入错误！");
+			$("#inp4").val("")
+		}
+	}
+	function num5(){//身份证号验证
+		var inp5=$("#inp5").val();
+		var df=/^(\d{6})(\d{4})(\d{2})(\d{2})(\d{3})([0-9]|X)$/;
+		df.test(inp5)?func():funs();
+		function func(){
+			alert("身份证号输入正确！")
+		}	
+		function funs(){
+			alert("身份证号输入错误！");
+			$("#inp5").val("")
+		}
+	}
+//	要求：可以包含数字、字母、下划线，并且要同时含有数字和字母，且长度要在8-16位之间。
+	function num6(){
+		var inp6=$("#inp6").val();
+		var df=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z_]{8,16}$/;
+		df.test(inp6)?func():funs();
+		function func(){
+			alert("密码格式输入正确！")
+		}	
+		function funs(){
+			alert("密码格式输入错误！");
+			$("#inp6").val("")
+		}
+		
+	}
+</script>
+	</body>
+</html>

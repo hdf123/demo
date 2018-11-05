@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.mainsd::-webkit-scrollbar {
+    width: 0 !important;
+}
+html, body {
+  height: 100%;
+  overflow: auto;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.headersd0 {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0rem 0rem 0.5rem 0rem rgba(164, 164, 164, 0.33);
+    >div{
+        height: 2rem;
+    }
+    > div:nth-child(1) {
+        width: 2rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size:1rem;
+    }
+    > div:nth-child(2){
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    > div:nth-child(3) {
+        width: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.headersd1{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0rem 0rem 0.213rem 0rem rgba(102, 102, 102, 0.18);
+    >div{
+        width:95%;
+        height:2rem;
+        margin:0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        > div{
+            height:100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font:500 0.768rem AdobeHeitiStd-Regular;
+        }
+        >div:nth-child(1)>span {
+            margin-left: 0.5rem;
+        }
+    }
+}
+.mainsd {
+  width: 100%;
+  overflow: auto;
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  bottom: 2rem;
+  text-align: center;
+}
+.footersd {
+    width: 100%;
+    height: 2rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0rem 0rem 0.5rem 0rem rgba(164, 164, 164, 0.33);
+    > div {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        font-size: 1rem;
+        > span {
+            font-size: 0.5rem;
+        }
+    }
+}
+.footersd0 {
+    width: 100%;
+    height: 2rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0rem 0rem 0.5rem 0rem rgba(164, 164, 164, 0.33);
+    > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        > div {
+            width: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            > img {
+                width: 100%;
+            }   
+        }
+        > p {
+            font-size: 0.5rem;
+        }
+    }
+}

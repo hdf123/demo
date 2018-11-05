@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>遮罩弹窗</title>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+<style>
+    .wdows{
+        width:100%;
+        height:100%;
+        display: flex;
+        justify-content: center;
+        position:fixed;
+        top:0;
+        left:0;
+        background: rgba(128,128,128,0.8);
+    }
+    .wdows>div{
+        width:50%;
+        height:10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background:white;
+        border-radius:0.3rem;
+        position:absolute;
+        top:45%;
+        left:25%;
+    }
+    
+	.wdowsd{
+		width:50%;
+		height:10%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius:0.3rem;
+		background:gray;
+		position:fixed;
+		top:45%;
+		left:25%;
+	}
+</style>
+	<body>
+		<button class="btn1">遮罩层弹窗</button>
+		<div class="wdows">
+			<div>遮罩层弹窗</div>
+		</div>
+		
+		
+		<button class="btn2">单独弹窗</button>
+		<div class="wdowsd">单独弹窗</div>
+<script type="text/javascript">
+//遮罩层弹窗
+	$(".wdows").hide();
+	var sd=$(window).height();
+	$(".btn1").click(function(){
+		$(".wdows").fadeIn(300,function(){
+			setTimeout(function(){
+				$(".wdows").fadeOut(2000,function(){
+					window.location.href="";
+				});
+			},1000);
+		});
+	})
+//单独弹窗
+	$(".wdowsd").hide();
+	$(".btn2").click(function(){
+		$(".wdowsd").fadeIn(300,function(){
+			setTimeout(function(){
+				$(".wdowsd").fadeOut(2000,function(){
+					window.location.href="";
+				});
+			},1000);
+		});
+	})
+</script>
+	</body>
+</html>

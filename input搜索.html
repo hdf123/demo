@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>搜索</title>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+<style>
+	.inptsd{
+		width:80%;
+		height:2rem;
+		display: flex;
+		margin:0 auto;
+		border:1px solid gray;
+		border-radius:0.3rem;
+	}
+	.inptsd>form,.inptsd>div{
+		height:100%;
+	}
+	.inptsd>form{
+		width:75%;
+		border-right:1px solid gray;
+	}
+	.inptsd>div{
+		width:25%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	#inpts{
+		box-sizing:border-box;
+		padding:0 0.25rem;
+		outline: none;
+		border:none;
+		border-radius:0.5rem;
+		width:100%;
+		height:100%;
+	}
+</style>
+	<body>
+		<div class="inptsd">
+			<form action="" id="myform">
+				<!--autofocus:页面加载时自动获得焦点-->
+				<input type="search" id="inpts" value="" placeholder="移动端事件" autofocus="autofocus"/>
+			</form>
+			<div id="btn">搜索</div>
+		</div>
+	   	<ul id="content_news_list">
+	    	<li><span>2015-7-8</span><a href="">这里是文章的标题1</a></li>
+	    	<li><span>2015-7-8</span><a href="">这里是文章的标题2</a></li>
+	    	<li><span>2015-7-8</span><a href="">这里是文章的标题3</a></li>
+	    	<li><span>2015-7-8</span><a href="">这里是文章的标题4</a></li>
+	    	<li><span>2015-7-8</span><a href="">这里是文章的标题5</a></li>
+	    	<li><span>2015-7-8</span><a href="">这里是文章的标题6</a></li>
+	    	<li><span>2015-7-8</span><a href="">这里是我们的标题6</a></li>
+	    	<li><span>2015-7-8</span><a href="">这里是文章的标题6</a></li>
+	    	<li><span>2015-7-8</span><a href="">这里是文章的标题6</a></li>
+	    	<li><span>2015-7-8</span><a href="">这里是文章的标题4</a></li>
+	   	</ul>
+<script type="text/javascript">
+	$('#myform').on('keypress', function (e){
+	    var keycode = e.keyCode;
+	    var searchName = $(this).val();
+	　　//keycode是键码，13也是电脑物理键盘的 enter 
+	    if(keycode == '13') {//移动端适用,软键盘搜索事件
+	    	e.preventDefault();
+			func();
+	    }
+	});
+	$("#btn").click(function(){
+		func();
+	})
+	function func(){
+  		var ss=$("#inpts").val();
+  		var sd= $("#content_news_list").find('a:contains('+ ss +')').parent();
+  		$("#content_news_list").html(sd);
+  		$("#ss").val("");
+	}
+	
+	
+/*
+	var storage=window.localStorage;
+            storage.a=1;
+            storage.setItem("c",3);
+            console.log(storage);
+            storage.removeItem("a");//将localStorage中的某个键值对删除
+            storage.clear();//将localStorage的所有内容清除
+            console.log(storage);
+*/
+//	eval();//可计算某个字符串，并执行其中的的 JavaScript 代码。
+//	concat();//连接两个或多个数组。
+//	closest()	获取最近的祖级元素
+//	find()		获取后代元素
+//	contains()	选取包含指定字符串的元素。
+</script>
+	</body>
+</html>

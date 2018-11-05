@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" id="ben">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+ 	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+ 	<meta name="apple-mobile-web-app-capable" content="yes" />
+ 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+ 	<meta name="format-detection" content="telphone=no,email=no" />
+
+
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<script type="text/javascript" src="scripts/jquery-1.8.2.min.js"></script>
+
+
+ 	<script type="text/javascript">
+	 var _width = $(window).width();
+		var _ziHao = 20 * (_width/320);
+		if(_width < 641){
+			$("#ben").css({"font-size":_ziHao + "px"})
+		}
+ 	</script>
+</head>
+<body>	
+
+	<section class="logo-license">
+		<div class="half">
+			<a class="logo" id="logox">
+				<img id="bgl" src="images/tx.png">
+			</a>
+		</div>
+		<div class="clear"></div>
+	</section>
+	<article class="htmleaf-container">
+		<div id="clipArea"></div>
+		<div class="foot-use">
+			<div class="uploader1 blue">
+				<input type="button" name="file" class="button" value="打开">
+				<input id="file" type="file" accept="image/*" multiple  />
+			</div>
+			<button id="clipBtn">截取</button>
+		</div>
+		<div id="view"></div>
+	</article>
+
+	<script src="scripts/iscroll-zoom.js"></script>
+	<script src="scripts/hammer.js"></script>
+	<script src="scripts/jquery.photoClip.js"></script>
+	<script>
+	var obUrl = ''
+	$("#clipArea").photoClip({
+		width: 300,
+		height: 300,
+		file: "#file",
+		view: "#view",
+		ok: "#clipBtn",
+		loadStart: function() {
+			console.log("照片读取中");
+		},
+		loadComplete: function() {
+			console.log("照片读取完成");
+		},
+		clipFinish: function(dataURL) {
+			console.log(dataURL);//图片路径
+		}
+	});
+	</script>
+	<script>
+	$(function(){
+		$("#logox").click(function(){
+			$(".htmleaf-container").show();
+		})
+		$("#clipBtn").click(function(){
+			$("#logox").empty();
+			$('#logox').append('<img src="' + imgsource + '" align="absmiddle" style=" width: 3rem;height: 3rem;">');
+			$(".htmleaf-container").hide();
+		})
+	});
+	</script>
+
+
+
+</body>
+</html>

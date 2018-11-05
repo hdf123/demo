@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>改tab切换</title>
+		<link rel="stylesheet" href="css/swiper-4.3.3.min.css" />
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper-4.3.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	#swiper1{
+		position: relative;
+	}
+	.swiper-slide{
+		height:11rem;
+		text-align: center;
+		border:1px solid red;
+	}
+	#uu1{
+		list-style:none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	#uu1>li{
+		border:1px solid red;
+	}
+</style>
+	<body>
+		<div class="swiper-container" id="swiper1">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">slider1</div>
+				<div class="swiper-slide">slider2</div>
+				<div class="swiper-slide">slider3</div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+		<ul id="uu1">
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+		</ul>
+		<script>
+			var my=new Swiper("#swiper1",{
+				loop:true,
+				on:{
+				    slideChangeTransitionStart: function(my){//swiper4中使用
+				      	var xiabiao=this.realIndex;//循环状态下获取下标
+			        	console.log(xiabiao);
+			        	$("#uu1>li").eq(xiabiao).css("color","red");
+			        	$("#uu1>li").eq(xiabiao).siblings().css("color","black");
+				    },
+				}
+				/*onSlideChangeStart:function(swiper){//swiper3中使用
+//		        	var xiabiao=swiper.activeIndex;
+			        var xiabiao=swiper.realIndex;//循环状态下获取下标
+			        console.log(1);
+			        $("#uu1>li").eq(xiabiao).css("color","red");
+			        $("#uu1>li").eq(xiabiao).siblings().css("color","black");
+			   }*/
+			})
+			$("#uu1>li").click(function(){
+				console.log(my.realIndex);
+			    var zuobiao=$(this).index();
+			    $("#uu1>li").eq(zuobiao).css("color","blue");
+			    $("#uu1>li").eq(zuobiao).siblings().css("color","black");
+			    my.slideTo(zuobiao+1,500,false);
+			})
+		</script>
+	</body>
+
+</html>

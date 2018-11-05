@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>地址栏传参</title>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	</body>
+<script type="text/javascript">
+//这是第一个页面a.html
+//通过地址栏传参的方式设置第二个页面b.html的参数，可为数组
+	var title =["我们","大家"];
+	var _t = encodeURI(encodeURI(title));
+	window.location.href = "a6.html?title="+_t;
+	
+//这是第二个页面
+	var _t = getQueryString("title"); //获取地址栏指定参数
+	var title = decodeURI(_t); //只需要转一次码
+	console.log(title);
+	var sd=title.split(",");
+	console.log(sd[0]);
+	//获取地址栏参数的方法
+	function getQueryString(name){
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null) return unescape(r[2]); return null;
+	}
+//获取全部参数
+	function getRequest() {
+  		var url=window.location.search; //获取url中"?"符后的字串
+  		var theRequest = new Object();
+  		if (url.indexOf("?") != -1) {
+    		var str = url.substr(1);
+    		strs = str.split("&");
+    		for(var i = 0; i < strs.length; i ++) {
+      			theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+    		}
+  		}
+  		return theRequest;
+	}
+	var getRequest=getRequest();//全部参数
+	var title=getRequest().title;//指定参数
+</script>
+</html>

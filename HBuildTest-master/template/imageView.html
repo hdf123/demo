@@ -1,0 +1,114 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/mui.css" />
+		<link rel="stylesheet" href="../css/app.css" />
+		<link rel="stylesheet" href="../css/imageview.css" />
+		<!--App自定义的css-->
+		<style type="text/css">
+			.leftImage {
+				margin-top: 10px;
+				width: 45%;
+				height: 200px;
+				margin-left: 10px;
+				float: left;
+			}
+			.rightImage {
+				margin-top: 10px;
+				width: 45%;
+				height: 200px;
+				margin-right: 10px;
+				float: right;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav white">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">图片预览</h1>
+		</header>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li class="image-li">
+					<img class="leftImage" src="../images/yuantiao.jpg" data-preview-src="" data-preview-group="1" />
+					<img class="rightImage" src="../images/yuantiao.jpg" data-preview-src="" data-preview-group="1" />
+				</li>
+				<li class="image-li">
+					<img class="leftImage" src="../images/yuantiao.jpg" data-preview-src="" data-preview-group="1" />
+					<img class="rightImage" src="../images/yuantiao.jpg" data-preview-src="" data-preview-group="1" />
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script src="../js/mui.zoom.js">	</script>
+	<script src="../js/mui.previewimage.js"></script>
+	<script src="../js/tools.js" ></script>
+	<script>
+		
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		
+		mui.previewImage();
+		
+		mui.plusReady(function() {
+			getaData();
+		})
+		// 获取数据
+		function getaData() {
+			var table = document.body.querySelector('.mui-table-view');
+			var timestamp = getDataStr();
+			mui.ajax(baseUrl, {
+				data: {
+					key: '',
+					typeId: '',
+					showapi_appid: appid,
+					showapi_sign: sign,
+					showapi_timestamp: timestamp,
+					page:1
+				},
+				dataType: 'json',
+				type: 'post',  
+				timeout: 10000,
+				beforeSend: function(data) {
+					plus.nativeUI.showWaiting(); 
+				},
+				success: function(data) {
+					plus.nativeUI.closeWaiting();  
+					if (data.showapi_res_code == 0) {
+						console.log("imageView成功");
+						var dice1 = data.showapi_res_body;
+						var dice2 = dice1.pagebean;
+						table.innerHTML = '';
+						for (var i = 0; i < dice2.contentlist.length - 1; i = i + 2) {
+							var item1 = dice2.contentlist[i];
+							var item2 = dice2.contentlist[i + 1];
+//							console.log(item1.contentImg);
+							var li = document.createElement('li');
+							li.className = 'image-li'; 
+							li.innerHTML = '<img class="leftImage" src="'+ item1.contentImg + '" data-preview-src="" data-preview-group="1" />'
+										+ '<img class="rightImage" src="'+ item2.contentImg + '" data-preview-src="" data-preview-group="1" />';
+							table.appendChild(li, table.firstChild);
+						}
+					}
+				},
+				error: function(xhr, type, errerThrown) {
+					mui.toast('网络异常,请稍候再试');
+					plus.nativeUI.closeWaiting();  
+				}
+			});
+		}	
+		
+		
+	</script>
+</html>

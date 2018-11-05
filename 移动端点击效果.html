@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>移动端模拟hover</title>
+    <style>
+        html {
+            font-size: 100px;
+        }
+        * {
+            font-size: .16rem;
+        }
+        .content {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: auto;
+            z-index: 10;
+            background-color: #fff;
+            -webkit-overflow-scrolling: touch;
+        }
+        .items {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .items li {
+            box-sizing: border-box;
+            line-height: .40rem;
+            text-indent: 1em;
+            border-bottom: 1px solid #e3e3e3;
+        }
+        .items li.active {
+            background-color: #e3e3e3;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <ul class="items">
+        <li class="action-btn">item1</li>
+        <li class="action-btn">item2</li>
+        <li class="action-btn">item3</li>
+        <li class="action-btn">item4</li>
+        <li class="action-btn">item5</li>
+    </ul>
+</div>
+
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    $(function () {
+        //自定义tap
+        $(document).on("touchstart", function (e) {//检测是否包含这个类
+            if (!$(e.target).hasClass("disable")) $(e.target).data("isMoved", 0);
+        });
+        $(document).on("touchmove", function (e) {
+            if (!$(e.target).hasClass("disable")) $(e.target).data("isMoved", 1);
+        });
+        $(document).on("touchend", function (e) {
+            if (!$(e.target).hasClass("disable") && $(e.target).data("isMoved") == 0) $(e.target).trigger("tap");
+        });
+        //按钮点击效果
+        $(document).on("touchstart", ".action-btn:not(.disable)", function (e) {
+            var $this = $(this);
+            var flag = true;
+            //遍历子类
+            $this.find("*").each(function () {
+                //查看有没有子类触发过active动作
+                if ($(this).hasClass("active")) flag = false;
+            });
+            //如果子类已经触发了active动作，父类则取消active触发操作
+            if (flag) $this.addClass("active");
+
+        });
+        $(document).on("touchmove", ".action-btn:not(.disable)", function (e) {
+            if ($(this).hasClass("active")) $(this).removeClass("active");
+        });
+        $(document).on("touchend", ".action-btn:not(.disable)", function (e) {
+            if ($(this).hasClass("active")) $(this).removeClass("active");
+        });
+
+    });
+</script>
+</body>
+</html>
