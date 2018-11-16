@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<p id="aa">hello</p>
+		
+<script type="text/javascript">
+	$("p").replaceWith("<b id='bb'>world</b>");//使用replaceWith替换
+//	<b id='bb'>world</b>//显示结果
+	
+	$("p").append("<b>world</b>")//使用append插入
+//	<p><b>world</b>hello</p>//显示结果
+		
+	$("p").prepend("<b>world</b>")//使用prepend插入
+//	<p><b>world</b>hello</p>//显示结果
+		
+	$("p").after("<b>world</b>")//使用after插入语句
+//	<p>hello</p><b>world</b>//显示结果
+		
+	$("p").before("<b>world</b>")//使用before插入语句
+//	<b>world</b><p>hello</p>//显示结果
+</script>
+	</body>
+</html>

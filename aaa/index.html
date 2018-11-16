@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/webiaoqing_2.css"/>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/webiaoqin_2.js"></script>
+	</head>
+	<body>
+		
+		<article id="form_article" contenteditable="true" onkeydown="myInput.listen(this, event);"></article>
+		<div class="page_emotion box_swipe" id="page_emotion">
+			<dl id="list_emotion" class="list_emotion pt_10"></dl><!-- 表情框 -->
+			<dt id="fg"><ol id="nav_emotion" class="nav_emotion"></ol></dt><!-- 分页提示点 -->
+		</div>
+		
+<script type="text/javascript">
+		var say = '说点什么吧...';
+		if ($("#form_article").html() === "") {
+			$("#form_article").html(say);
+		}
+		$("#form_article").click(function(){
+            if($("#form_article").html() == say){
+               	$("#form_article").html("");
+            }
+	    });
+	    $("#page_emotion").click(function(event){
+	     	event.stopPropagation();
+	     })
+	    $("#page_emotion dd").click(function(){//表情
+            $("#form_article").html( $("#form_article").html().replace(say, '') );
+	    });
+</script>
+	</body>
+</html>
