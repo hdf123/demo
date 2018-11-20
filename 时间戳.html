@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+<script type="text/javascript">
+	var timestamp=new Date().getTime();//当前时间戳
+	getMyDate(timestamp);
+	console.log(getMyDate(timestamp));
+  	function getMyDate(str){
+        var oDate = new Date(str),
+            oYear = oDate.getFullYear(),//年
+            oMonth = oDate.getMonth()+1,//月
+            oDay = oDate.getDate(),//日
+            oHour = oDate.getHours(),//时
+            oMin = oDate.getMinutes(),//分
+            oSen = oDate.getSeconds(),//秒
+            oFf=oDate.getMilliseconds()//毫秒
+            oTime = oYear +'-'+ getzf(oMonth) +'-'+ getzf(oDay) +' '+ getzf(oHour) +':'+ getzf(oMin) +':'+getzf(oSen)+':'+getzf(oFf);//最后拼接时间
+        return oTime;
+    };
+    //补0操作
+    function getzf(num){
+        if(parseInt(num) < 10){
+            num = '0'+num;
+        }
+        return num;
+    }
+</script>
+	</body>
+</html>
