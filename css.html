@@ -6,35 +6,38 @@
 		<title>常用css样式</title>
 		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
-	<style>
-		*{
-			margin:0;
-			padding:0;
-			box-sizing: border-box;
-		}
-		.demo01>div{
-			width:20%;
-			height:40px;
-			overflow:hidden; /*超出隐藏*/
-        	display:-webkit-box; /*将对象作为弹性伸缩盒子模型显示。*/
-        	-webkit-box-orient:vertical;/*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
-        	-webkit-line-clamp:2; /*超出2行用省略号表示*/
-			border:1px solid gray;
-			margin-left:20px;
-		}
-		.demo02{
-			margin-top:10px;
-		}
-		.demo02>div{
-			width:20%;
-			height:20px;
-			overflow: hidden;
-        	text-overflow:ellipsis;
-        	white-space: nowrap;
-        	margin-left:20px;
-			border:1px solid gray;
-		}
-	</style>
+<style>
+	*{
+		margin:0;
+		padding:0;
+		box-sizing: border-box;
+	}
+	.demo01>div{
+		width:20%;
+		height:40px;
+		overflow:hidden; /*超出隐藏*/
+    	display:-webkit-box; /*将对象作为弹性伸缩盒子模型显示。*/
+    	-webkit-box-orient:vertical;/*从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+    	-webkit-line-clamp:2; /*超出2行用省略号表示*/
+		border:1px solid gray;
+		margin-left:20px;
+	}
+	.demo02{
+		margin-top:10px;
+	}
+	.demo02>div{
+		width:20%;
+		height:20px;
+		overflow: hidden;
+    	text-overflow:ellipsis;
+    	white-space: nowrap;
+    	margin-left:20px;
+		border:1px solid gray;
+	}
+    #inpts::-webkit-input-placeholder{
+        text-align: center;
+    }
+</style>
 	<body>
 		<div class="demo01">
 			<p>超出多行省略号表示</p>

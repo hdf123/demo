@@ -8,7 +8,6 @@
 <script type="text/javascript">
 	var timestamp=new Date().getTime();//当前时间戳
 	getMyDate(timestamp);
-	console.log(getMyDate(timestamp));
   	function getMyDate(str){
         var oDate = new Date(str),
             oYear = oDate.getFullYear(),//年
@@ -28,6 +27,80 @@
         }
         return num;
     }
+    
+    
+//时间戳转换 返回年-月-日
+	var time=new Date().getTime();//当前时间戳
+	console.log(time);
+	console.log(getDate(time));
+	function getDate(tm){ 
+		var tt = new Date(tm).toLocaleString().replace(/\//g, "-");
+		tt = tt.split(" ");
+		return tt[0];
+	}
+
+//时间戳转换 返回到年-月-日-分钟
+	console.log(allDate(time));
+	function allDate(tm) { 
+		var tt = new Date(tm).toLocaleString().replace(/\//g, "-");
+		tt = tt.split(" ");
+		var bb = tt[0].split("-");
+		var ff = tt[1].split(":");
+		var Dates =ff[0].slice(2);
+		var www= ff[0].slice(0,2);
+		if(Dates < 10){
+			Detes =0+Dates;
+		}
+		return (bb[0] + "年" + bb[1] + "月" + bb[2] + "日 " +www+Detes + "时" + ff[1] + "分");
+	}
+//多久之前
+	console.log(contrastDate(1541048131959));
+	function contrastDate(tm) {
+		var tt = new Date(tm).toLocaleString().replace(/\//g, "-");
+		tt = tt.split(" ");
+		var bb = tt[0].split("-");
+		var ff = tt[1].split(":");
+		//当前时间
+		var today = new Date().toLocaleString().replace(/\//g, "-");
+		today = today.split(" ")
+	
+		var ago = "";
+		var today1 = today[0].split("-");
+		var today2 = today[1].split(":");
+	
+		var n = today1[0] - bb[0];
+		var y = today1[1] - bb[1];
+		var r = today1[2] - bb[2];
+	
+	if (today2[0].slice(0, 2) == "下午") {
+		var Dates = Number(today2[0].slice(2)) + 12;
+	} else {
+		var Dates = Number(today2[0].slice(2));
+	}
+	
+	if (ff[0].slice(0, 2) == "下午"){
+		var ffs = Number(ff[0].slice(2)) + 12;
+	} else {
+		var ffs = Number(ff[0].slice(2));
+	}
+	var s = Dates - ffs;
+	var f = today2[1] - ff[1];
+	if (n != 0) {
+		ago = n + "年前";
+//		ago=tt;//发表时的时间
+	} else if (y != 0) {
+		ago = y + "个月前";
+	} else if (r != 0) {
+		ago = r + "天前";
+	} else if (s != 0) {
+		ago = s + "小时前";
+	} else if (f != 0) {
+		ago = f + "分钟前"
+	}else{
+		ago = "刚刚"
+	}
+		return (ago)
+	}
 </script>
 	</body>
 </html>
