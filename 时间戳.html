@@ -2,10 +2,12 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>时间戳</title>
 	</head>
 	<body>
 <script type="text/javascript">
+	//1.0、2.0、3.0
+//	1.0
 	var timestamp=new Date().getTime();//当前时间戳
 	getMyDate(timestamp);
   	function getMyDate(str){
@@ -28,8 +30,8 @@
         return num;
     }
     
-    
-//时间戳转换 返回年-月-日
+//2.0
+	//时间戳转换 返回年-月-日
 	var time=new Date().getTime();//当前时间戳
 	console.log(time);
 	console.log(getDate(time));
@@ -39,7 +41,7 @@
 		return tt[0];
 	}
 
-//时间戳转换 返回到年-月-日-分钟
+	//时间戳转换 返回到年-月-日-分钟
 	console.log(allDate(time));
 	function allDate(tm) { 
 		var tt = new Date(tm).toLocaleString().replace(/\//g, "-");
@@ -53,7 +55,7 @@
 		}
 		return (bb[0] + "年" + bb[1] + "月" + bb[2] + "日 " +www+Detes + "时" + ff[1] + "分");
 	}
-//多久之前
+	//多久之前
 	console.log(contrastDate(1541048131959));
 	function contrastDate(tm) {
 		var tt = new Date(tm).toLocaleString().replace(/\//g, "-");
@@ -77,7 +79,6 @@
 	} else {
 		var Dates = Number(today2[0].slice(2));
 	}
-	
 	if (ff[0].slice(0, 2) == "下午"){
 		var ffs = Number(ff[0].slice(2)) + 12;
 	} else {
@@ -87,7 +88,7 @@
 	var f = today2[1] - ff[1];
 	if (n != 0) {
 		ago = n + "年前";
-//		ago=tt;//发表时的时间
+		//ago=tt;//发表时的时间
 	} else if (y != 0) {
 		ago = y + "个月前";
 	} else if (r != 0) {
@@ -101,6 +102,12 @@
 	}
 		return (ago)
 	}
+
+//3.0
+	var timeas="2018-11-16T07:59:18.000+0000";
+	var dateee = new Date().toJSON(timeas);
+	var date = new Date(+new Date(dateee)+8*3600*1000).toISOString().replace(/T/g,' ').replace(/\.[\d]{3}Z/,'');
+	console.log(date); 
 </script>
 	</body>
 </html>
