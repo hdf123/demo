@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>视频播放调试</title>
+		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+<style>
+	
+</style>
+	<body>
+	    <video id="php100" src="../video/oceans.mp4" style="width: 100%; height: 100%; object-fit: fill" poster="video/m.jpg" controls="controls" autoplay="autoplay">
+			<source src="../video/oceans.ogv" type="video/ogg">
+		    <source src="../video/oceans.webm" type="video/webm">
+	    	<track kind="captions" src="../shared/example-captions.vtt" srclang="en" label="English"></track>
+	    	<track kind="subtitles" src="../shared/example-captions.vtt" srclang="en" label="English"></track>
+	    </video>
+	<p>controls表示控制条，prload：预加载，poster表示最初的显示的图片。data-set支持用json来设置一些参数。source不用说了，track指的是字幕。</p>
+	    <hr />
+	    <button id="play">播放</button>
+	    <button id="pause">暂停</button>
+	    <button id="go10">快进10秒</button>
+	    <button id="back10">快退10秒</button>
+	    <button id="rate1">播放速度+</button>
+	    <button id="rate0">播放速度-</button>
+	    <button id="volumel">声音+</button>
+	    <button id="volume0">声音-</button>
+	    <button id="muted1">静音</button>
+	    <button id="muted2">解除静音</button>
+	    <button id="full">全屏</button>
+    <script type="text/javascript">
+        $(function () {
+            var video = $('#php100'),as=false;;//指定了对象
+            $('#play').click(function () {
+                video[0].play();
+            })
+            $('#pause').click(function () {
+                video[0].pause();
+            })
+            $('#go10').click(function () {
+                video[0].currentTime += 10;
+            })
+            $('#back10').click(function () {
+                video[0].currentTime -= 10;
+            })
+            $('#rate1').click(function () {
+                video[0].playbackRat+=2;
+            })
+            $('#rate0').click(function () {
+                video[0].playbackRat -=2;
+            })
+            $('#volumel').click(function () {
+                video[0].volume += 0.1;
+            })
+            $('#volume0').click(function () {
+                video[0].volume -= 0.1;
+            })
+            $('#muted1').click(function () {
+                video[0].muted = true;
+            })
+            $('#muted1').click(function () {
+                video[0].muted = false;
+            })
+			$("#full").click(function () {
+				if(as==false){
+					as=true;
+					$("#full").text("退出全屏");
+				    var ele = document.documentElement;
+				    if (ele .requestFullscreen) {
+				        ele .requestFullscreen();
+				    } else if (ele .mozRequestFullScreen) {
+				        ele .mozRequestFullScreen();
+				    } else if (ele .webkitRequestFullScreen) {
+				        ele .webkitRequestFullScreen();
+				    }
+				}else{
+					as=false;
+					$("#full").text("全屏");
+				    var de = document;
+				    if (de.exitFullscreen) {
+				        de.exitFullscreen();
+				    } else if (de.mozCancelFullScreen) {
+				        de.mozCancelFullScreen();
+				    } else if (de.webkitCancelFullScreen) {
+				        de.webkitCancelFullScreen();
+				    }
+				}
+			})
+        })
+    </script>
+	</body>
+</html>
