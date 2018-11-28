@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>textarea</title>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+<style>
+	*{
+		margin:0;
+		padding:0;
+		box-sizing:border-box
+	}
+	.txt{
+		width:50%;
+		resize:none;/*禁止拉伸*/
+		margin:5rem auto;
+		outline:none;
+		display: block;
+		border:none;
+	}
+	.txt::-webkit-scrollbar {/*隐藏滚动条*/
+		width: 0 !important;
+		/*display: none;*/
+	}
+</style>
+	<body>
+		<textarea class="txt">胸骨骨折多由直接暴力或作用于胸前的挤压力量胸骨骨折多由直接暴力或作用于胸前的挤压力量胸骨骨折多由直接暴力或作用于胸前的挤压力量</textarea>
+<script type="text/javascript">
+	//设置 textarea 的高度随着 内容 增加 自适应
+	$(".txt").height($(".txt")[0].scrollHeight);
+	$(".txt").on("keyup keydown", function(){
+	    $(this).height(this.scrollHeight);
+	})
+</script>
+	</body>
+</html>

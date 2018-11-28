@@ -1,0 +1,38 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	/*去除移动端特有的点击高亮效果*/
+    -webkit-tap-highlight-color: transparent;
+    font-size: 0.21rem;
+    font-weight: 400;
+}
+input{
+    /*1.清除文本框获取焦点时默认的边框阴影*/
+    outline: none;
+    /*2.去除边框*/
+    border: none;
+}
+/* 让链接默认不显示下划线， */
+a{
+    color: #333;
+    /*指针样式*/
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    /*导致鼠标在页面活动时视频延迟变卡问题解决.*/
+    blr:expression(this.onFocus=this.blur());
+}
+/* 清理浮动 */
+.clearfix:before,.clearfix:after{
+    display: block;
+    content: " ";
+    clear: both;
+}
+/*loading 动画*/
+
+
+
+
+
+

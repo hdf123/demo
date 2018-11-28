@@ -15,7 +15,7 @@
 
 
 //ajax调用
-function ajaxGet(url,type,data,suFn,erFn){
+function ajaxs(url,type,data,suFn,erFn){
 	$.ajax({
 		url:"http://39.104.127.252:8081/"+url,
  		xhrFields:{
@@ -117,3 +117,28 @@ function loadmore(element,url,type,dataObj,successFn,errorFn) {
     });
 },function () {   
 });*/
+
+
+//地址栏传参
+	function getRequest() {
+  		var url=window.location.search; //获取url中"?"符后的字串
+  		var theRequest = new Object();
+  		if (url.indexOf("?") != -1) {
+    		var str = url.substr(1);
+    		strs = str.split("&");
+    		for(var i = 0; i < strs.length; i ++) {
+      			theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
+    		}
+  		}
+  		return theRequest;
+	}
+	getRequest();//全部参数
+	
+
+function textareas(){
+	//设置 textarea 的高度随着 内容 增加 自适应
+	$(".txt").height($(".txt")[0].scrollHeight);
+	$(".txt").on("keyup keydown", function(){
+	    $(this).height(this.scrollHeight);
+	})
+}
