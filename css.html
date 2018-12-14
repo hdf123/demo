@@ -33,6 +33,16 @@
     	white-space: nowrap;
     	margin-left:20px;
 		border:1px solid gray;
+		word-wrap:break-word;/*强制换行*/
+	}
+	.demo03{
+		margin-top:10px;
+	}
+	.demo03>div{
+		width:20%;
+		height:20px;
+		background:gainsboro;
+		float: left;
 	}
     #inpts::-webkit-input-placeholder{/*placeholder样式*/
         text-align: center;
@@ -54,6 +64,10 @@
 			<div>
 				啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
 			</div>
+		</div>
+		<div class="demo03">
+			<div></div>
+			啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
 		</div>
 <script type="text/javascript">
 //图片加载失败时，动态添加也包含在内

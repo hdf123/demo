@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Hello MUI</title>
+		<title>第三方支付</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -64,9 +64,9 @@
 			// 获取支付通道
     			plus.payment.getChannels(function(channels){
     				aliChannel=channels[0];
-       			wxChannel=channels[1];
+       				wxChannel=channels[1];
     			},function(e){
-       			 alert("获取支付通道失败："+e.message);
+       			 	alert("获取支付通道失败："+e.message);
     			});
 		})
 	
@@ -79,45 +79,44 @@
 			pay('alipay'); 
 		})
 	
-		var ALIPAYSERVER='http://demo.dcloud.net.cn/helloh5/payment/alipay.php?total=';
-		var WXPAYSERVER='http://demo.dcloud.net.cn/helloh5/payment/wxpay.php?total=';
+		var ALIPAYSERVER='http://demo.dcloud.net.cn/helloh5/payment/alipay.php?total=';// 支付宝支付
+		var WXPAYSERVER='http://demo.dcloud.net.cn/helloh5/payment/wxpay.php?total=';// 微信支付
 		// 2. 发起支付请求
 		function pay(id){
-    			// 从服务器请求支付订单
-    			var PAYSERVER='';
-    			if(id=='alipay'){
-       			PAYSERVER=ALIPAYSERVER;
-       			channel = aliChannel;
-   	 		}else if(id=='wxpay'){
-        			PAYSERVER=WXPAYSERVER;
-        			channel = wxChannel;
-    			}else{
-        			plus.nativeUI.alert("不支持此支付通道！",null,"捐赠");
-        			return;
+    		// 从服务器请求支付订单
+    		var PAYSERVER='';
+    		if(id=='alipay'){
+	       		PAYSERVER=ALIPAYSERVER;
+	       		channel = aliChannel;
+	   	 	}else if(id=='wxpay'){
+	        	PAYSERVER=WXPAYSERVER;
+	        	channel = wxChannel;
+	    	}else{
+    			plus.nativeUI.alert("不支持此支付通道！",null,"捐赠");
+    			return;
    			 }
-    			var xhr=new XMLHttpRequest();
-    			xhr.onreadystatechange=function(){
-        			switch(xhr.readyState){
-            			case 4:
-            			if(xhr.status==200){
-                			plus.payment.request(channel,xhr.responseText,function(result){
-                    			plus.nativeUI.alert("支付成功！",function(){
-                       	 		back();
-                   	 		});
-                			},function(error){
-                    			plus.nativeUI.alert("支付失败：" + error.code);
-                			});
-            			}else{
-                			alert("获取订单信息失败！");
-            			}
-            			break;
+			var xhr=new XMLHttpRequest();
+			xhr.onreadystatechange=function(){
+        		switch(xhr.readyState){
+            		case 4:
+            		if(xhr.status==200){
+            			plus.payment.request(channel,xhr.responseText,function(result){
+                			plus.nativeUI.alert("支付成功！",function(){
+                   	 		back();
+               	 		});
+            			},function(error){
+                			plus.nativeUI.alert("支付失败：" + error.code);
+            			});
+            		}else{
+            			alert("获取订单信息失败！");
+        			}
+        			break;
             		default:
             		break;
         		}
-   		 }
+   		 	}
     		xhr.open('GET',PAYSERVER);
     		xhr.send();
-	}
-		
+		}
 	</script>
 </html>

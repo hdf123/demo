@@ -49,6 +49,10 @@
 			<span onclick="num6()">inp6:</span>
 			<input type="text" id="inp6" placeholder="密码格式验证" value=""/>
 		</div>
+		<div>
+			<span onclick="num7()">inp7:</span>
+			<input type="text" id="inp7" onkeyup="num7(this)" placeholder="含0正整数" value=""/>
+		</div>
 <script type="text/javascript">
 	function num1(obj){
 		obj.value = obj.value.replace(/[^\d.]/g,""); //清除"数字"和"."以外的字符
@@ -110,7 +114,15 @@
 			alert("密码格式输入错误！");
 			$("#inp6").val("")
 		}
-		
+	}
+	
+	function num7(obj){//只能输入正整数，不能为0
+		var reg=/^([1-9]\d*|[0]{1,1})$/; //含0正整数
+		if(reg.test(obj.value)){
+			return;
+		}else{
+			obj.value="";
+		}
 	}
 </script>
 	</body>

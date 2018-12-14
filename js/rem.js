@@ -1,12 +1,14 @@
-//rem适配换算
-(function(win,doc){
-	//浏览器缩放时触发的事件
-	win.onresize=function(){
-		changeFontSize()
-	};
-	changeFontSize();
-	function changeFontSize(){
-		var oFontSize=doc.documentElement.clientWidth/(320/20);
-		doc.documentElement.style.fontSize=oFontSize+'px';
-	}
-})(window,document);
+//rem大小设置、ajax封装、上拉加载
+	(function(win,doc){
+	    //浏览器缩放大小时
+	    win.onresize=function(){
+	        change();
+	    };
+	    change();
+	    function change(){
+	        var Fs=doc.documentElement.clientWidth;
+	        var nFs=Fs/(Fs/100);
+	        //字体大小为100px;
+	        doc.documentElement.style.fontSize=nFs+'px';
+	    }
+	})(window,document);

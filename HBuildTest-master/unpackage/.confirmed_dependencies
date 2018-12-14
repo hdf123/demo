@@ -53,7 +53,8 @@
 			"template/share.html",
 			"template/pay.html",
 			"template/vue.html",
-			"template/register.html"
+			"template/register.html",
+			"template/imageView.html"
 		],
 		"resources": [
 			"js/mui.min.js",

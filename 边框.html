@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>边框</title>
+	</head>
+<style>
+	*{
+		margin:0;
+		padding:0;
+		box-sizing: border-box;
+	}
+	.a1{
+		width:50%;
+		height:100px;
+		border:0.01rem solid rgba(150,150,150,0.1); 
+	}
+	.a2{/*透明边框*/
+		width:50%;
+		height:100px;
+		border:0.01rem solid transparent;
+	}
+</style>
+	<body>
+		<div class="a1">0.1透明边框01</div>
+		<div class="a2">透明边框02</div>
+	</body>
+</html>

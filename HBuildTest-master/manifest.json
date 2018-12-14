@@ -264,7 +264,8 @@
 					"template/share.html",
 					"template/pay.html",
 					"template/vue.html",
-					"template/register.html"
+					"template/register.html",
+					"template/imageView.html"
 				],
 				"priority": 0
 			},
@@ -358,7 +359,6 @@
 				"js/ad.js",
 				"js/mui.lazyload.img.js",
 				"images/iconfont-tianjia.png",
-				"template/imageView.html",
 				"js/vue.js",
 				"images/logo.png",
 				"js/mui.listpicker.js",

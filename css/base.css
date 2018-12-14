@@ -29,8 +29,11 @@ a{
     content: " ";
     clear: both;
 }
-/*loading 动画*/
-
+/*改变placeholder的字体颜色*/
+input::-webkit-input-placeholder{
+    color:#888888;
+    opacity:1;
+}
 
 
 

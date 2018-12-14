@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>定位</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -25,6 +25,7 @@
 		var posi = null;
 		mui.plusReady(function() {
 			posi = plus.geolocation.getCurrentPosition( function ( p ) {
+				//坐标
 				console.log( "Geolocation\nLatitude:" + p.coords.latitude + "\nLongitude:" + p.coords.longitude + "\nAltitude:" + p.coords.altitude );
 				console.log("street = " + p.address.street);
 				console.log("poiName = " + p.address.poiName);
