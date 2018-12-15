@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+<script type="text/javascript">
+	(function(win,doc){
+	    //浏览器缩放大小时
+	    win.onresize=function(){
+	        change();
+	    };
+	    change();
+	    function change(){
+	    	/*fg=320---fk=375*/
+	        var Fs=doc.documentElement.clientWidth,fg="",fk="";
+	       /*320*/
+	        if(Fs>=310&&Fs<=330){//320
+	        	fg=100;//字体大小为100px;
+	        }else if(Fs>=355&&Fs<=365){//360
+	        	fg=112.5;
+	        }else if(Fs>=370&&Fs<=380){//375
+	        	fg=117.1875;
+	        }else if(Fs>=410&&Fs<=420){//414、411
+	        	fg=128.4375;
+	        }else if(Fs>=765&&Fs<=770){//768
+	        	console.log(11111111);
+	        	fg=240;
+	        }else if(Fs>=1020&&Fs<=1030){//1024
+	        	console.log(11111111);
+	        	fg=320;
+	        }else{
+	        	fg=100;
+	        }
+	        
+	        /*375*/
+	        /*if(Fs>=310&&Fs<=330){//320
+	        	fk=85.3;//字体大小为85.3px;
+	        }else if(Fs>=355&&Fs<=365){//360
+	        	fk=96;
+	        }else if(Fs>=370&&Fs<=380){//375
+	        	fk=100;
+	        }else if(Fs>=410&&Fs<=420){//414、411
+	        	fk=109.6;
+	        }else if(Fs>=765&&Fs<=770){//768
+	        	console.log(11111111);
+	        	fk=204.8;
+	        }else if(Fs>=1020&&Fs<=1030){//1024
+	        	console.log(11111111);
+	        	fk=273.1;
+	        }*/
+	        var nFs=Fs/(Fs/fg);
+	        doc.documentElement.style.fontSize=nFs+'px';
+	    }
+	})(window,document);
+</script>
+<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	body{
+		display:flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.a1{
+		width:3.2rem;
+		height:2rem;
+		background:lime;
+		font-size:0.2rem;
+	}
+	.a2{
+		width:3.2rem;
+		height:2rem;
+		background:aqua;
+		font-size:0.4rem;
+	}
+</style>
+	<body>
+		<div class="a1">8888</div>
+		<div class="a2">9999</div>
+		
+	</body>
+</html>
