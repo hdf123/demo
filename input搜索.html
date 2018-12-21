@@ -74,6 +74,15 @@
 	$("#btn").click(function(){
 		func();
 	})
+	$("#inpts").on('input propertychange',function(){
+			var name=$("#inpts").val();
+			console.log(name);
+			if(name.length<=4){
+				$(this).css({"color":"black"});
+			}else{
+				$(this).css({"color":"red"});
+			}
+	})
 	function func(){
   		var ss=$("#inpts").val();
   		var sd= $("#content_news_list").find('a:contains('+ ss +')').parent();
