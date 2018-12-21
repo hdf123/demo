@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+<style>
+	input::-webkit-input-placeholder{
+	    color:red;
+	    opacity:1;
+	}
+</style>
+	<body>
+		<ul>
+			<li>1.0删除数组中指定元素</li>
+		</ul>
+		<input type="text" placeholder="阿斯顿发" />
+<script type="text/javascript">
+//	1.0
+	//删除数组中指定元素
+	var arr = [1, 2, 3, 2, 5];
+	var removeItem = 2;  
+	arr = $.grep(arr,function(value){
+	 	return value != removeItem;
+	});
+	console.log(arr);
+	
+	//删除数组中的指定元素元素
+	var arr1=[1,2,3,2,4];
+	var item=2;
+	function removeWithoutCopy(arr1, item) {
+	     for(var i = 0; i < arr1.length; i++){
+	         if(arr1[i] == item){
+	             //splice方法会改变数组长度，当减掉一个元素后，后面的元素都会前移，因此需要相应减少i的值
+	             arr1.splice(i,1);
+	             i--;
+	         }
+	     }
+	     return arr1;
+	}
+	console.log(removeWithoutCopy(arr1,item));
+	
+//	2.0
+</script>
+	</body>
+</html>
