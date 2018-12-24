@@ -3,15 +3,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>iframe布局</title>
+		<title>aa</title>
+		<link rel="import" href="a1.html" id="tmp">
+		<!--<link rel="import" type="text/css" id="tmp" href="a1.html"/>-->
 		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 <style>
-	*{
-		margin:0;
-		padding:0;
-		box-sizing: border-box;
-	}
+	*{margin:0;padding:0;box-sizing: border-box;}
 	html,body{
 		width:100%;
 		height:100%;
@@ -27,16 +25,13 @@
 		top:0;
 		left:0;
 	}
-	.as{
+	#a1{
 		width:100%;
 		position: absolute;
 		top:3rem;
 		left:0;
 		bottom:3rem;
-	}
-	#sub_frame{
-		width:100%;
-		height:100%;
+		overflow: auto;
 	}
 	.aa{
 		width:100%;
@@ -53,7 +48,7 @@
 		text-align:center;
 		border:1px solid red;
 	}
-	.a1{
+	.as1{
 		color:red;
 	}
 </style>
@@ -61,15 +56,14 @@
 		<header>
 			头部
 		</header>
-		<div class="as">
-			<iframe src="a1.html" id="sub_frame" frameborder="0"></iframe>
-		</div>
+		
 		<div class="aa">
-			<div class="a1">第一页</div>
-			<div id="a2">第二页</div>
+			<div class="as1">第一页</div>
+			<div class="as2">第二页</div>
 		</div>
 
 <script type="text/javascript">
+	$("header").after(tmp.import.body.innerHTML);
 	$(".a1").click(function(){
 		/*var frameWin = $('#sub_frame')[0].contentWindow;
 		frameWin.funk();  //funk为子页面的方法*/
@@ -80,6 +74,7 @@
 		
 		funs($(".a1"),"a1.html");
 	})
+	
 	$(".a2").click(function(){
 		funs($(".a2"),"a2.html");
 	})

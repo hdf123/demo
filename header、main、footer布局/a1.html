@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title></title>
+		<title>a1</title>
 		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 <style>
@@ -16,7 +16,7 @@
 		text-align: center;
 		/*border:1px solid red;*/
 	}
-	.aa{
+	.a1{
 		width:100%;
 		height:3rem;
 		line-height:3rem;
@@ -25,17 +25,18 @@
 	}
 </style>
 	<body>
+		<div id="a1"></div>
 <script type="text/javascript">
 	var sd="";
 	for(var i=0;i<15;i++){
-		sd+=`<div class="aa">${i}</div>`;
+		sd+=`<div class="a1">${i}</div>`;
 	}
-	$("body").html(sd);
+	$("#a1").html(sd);
 	
 	//子页面获取父页面的window对象：
 	var parentWin = window.parent;
 	console.log(parentWin);
-	console.log(parentWin.$(".a1").html());
+//	console.log(parentWin.$("#a1").html());
 	
 </script>
 	</body>

@@ -41,6 +41,9 @@ html, body {
     }
     > div:nth-child(3) {
         width: 3rem;
+        position: absolute;
+        top: 0;
+        right: 0;
         display: flex;
         justify-content: center;
         align-items: center;

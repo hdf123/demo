@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+<style>
+	*{margin:0;padding:0;}
+	.a1,.a2,.a3{
+		width:100%;
+		height:111rem;
+		background:#eeeeee;
+	}
+	.a2{
+		background:lime;
+	}
+	.a3{
+		background:aqua;
+	}
+</style>
+	<body>
+		<div class="a1"></div>
+		<div class="a2" id="a2">
+		</div>
+		<div class="a3"></div>
+		<button id="btn">走起</button>
+
+<script type="text/javascript">
+	$("#btn").click(function(){
+		
+		document.querySelector("#a2").scrollIntoView(true);//true顶部为准,false底部为准
+	})
+</script>
+	</body>
+</html>

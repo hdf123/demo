@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>本地绝对路径预览图片</title>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+<style>
+	*{margin:0;padding:0;}
+	#imgs{
+		width:100px;
+		height:100px;
+		display:none;
+	}
+</style>
+	<body>
+		<input type="file" name="" id="file" value="" />
+		<img src="" id="imgs"/>
+<script type="text/javascript">
+function getObjectURL(file) {  
+     var url = null;  
+     if (window.createObjcectURL != undefined) {  
+         url = window.createOjcectURL(file);  
+     } else if (window.URL != undefined) {  
+         url = window.URL.createObjectURL(file);  
+     } else if (window.webkitURL != undefined) {  
+         url = window.webkitURL.createObjectURL(file);  
+     }  
+     return url;  
+ }
+ //使用方法
+ $("#file").change(function(){
+     var file = this.files[0];
+     var url = getObjectURL(file);//blob:http://doamin.com/5376c16a-02f9-489f-b30c-97a1808d5724
+     console.log(url);
+     $("#imgs").css("display","block");
+     $("#imgs").attr("src",url)
+ });
+</script>
+	</body>
+</html>
