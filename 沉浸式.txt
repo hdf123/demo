@@ -1,19 +1,19 @@
 1、首先 css结构需要更改，头部padding-top:40px;留出状态栏的位置
 2、hbulider 配置文件的更改
-（1）："plus":{//在plus中添加statusbar
+（1）："plus":{//在plus中添加statusbar，42
 		"statusbar":{
     			"immersed": true //透明状态栏 
     		},
 	}
 	
 
-（2）："apple": {//在apple中任意位置添加
+（2）："apple": {//在apple中任意位置添加，54
       
                "UIReserveStatusbarOffset":true,
                 
             },
 
-（3）："google": {//在google中任意位置添加
+（3）："google": {//在google中任意位置添加，64
                
                "ImmersedStatusbar":true,
               
