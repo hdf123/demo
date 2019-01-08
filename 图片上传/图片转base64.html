@@ -4,12 +4,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>图片转base64</title>
-		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 
 	<body>
 
-		<img src="img/add.png" alt="" id="imgs" />
+		<img src="" alt="" id="imgs" />
 <script type="text/javascript">
 	/*三种函数自调用
 	1.!function(){}()//!function()
@@ -29,7 +29,7 @@
 		ctx = canvas.getContext('2d'),
 		img = new Image;　　
 		img.crossOrigin = 'Anonymous';　　
-		img.onload = function() {　　
+		img.onload = function() {
 			canvas.height = img.height;　　
 			canvas.width = img.width;　　
 			ctx.drawImage(img, 0, 0);　　

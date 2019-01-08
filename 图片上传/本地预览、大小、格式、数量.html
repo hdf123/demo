@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>本地预览、大小、格式、数量、base64</title>
+		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<input type="file" name='files' id="files" multiple accept="image/*"/>
+		<div class="aa"></div>
+<script type="text/javascript">
+	$("#files").change(function(){
+		var file =$(this)[0].files[0];
+    	var url = getObjectURL(file);//本地路径
+    	console.log("本地路径="+url);
+    	var countFiles = $(this)[0].files.length;//获取选择的图片数量
+    	console.log("图片数量="+countFiles);
+    	var imgPath = $(this)[0].value;//获取选中的图片
+    	var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();//图片格式
+    	console.log("图片格式="+extn);
+    	
+    	for (var i = 0; i < countFiles; i++) {
+    		//图片格式
+    		var imgPath = $(this)[0].value;//获取选中的图片
+    		var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();//图片格式
+    		console.log("图片格式="+extn);
+        	//图片大小
+        	var size =$(this)[0].files[i].size / 1024;
+        	console.log("图片大小="+size);
+        	if(extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg"){
+				console.log("1111111");
+        	}else{
+        		alert("请选择图像文件。");
+        	}
+    		if(size > 1024*0.3){
+    			alert('图片大小不能超过2M');
+    			return false;
+    		}else{
+    			var reader = new FileReader();
+   	            reader.onload = function (e) {
+   	            	$(".aa").append($(`<img src=${e.target.result}>`));
+   	            }
+   	            reader.readAsDataURL($(this)[0].files[i]);
+    		}
+    	}
+	})
+	function getObjectURL(file) {  
+	    var url = null;  
+	    if(window.createObjcectURL != undefined) {  
+	        url = window.createOjcectURL(file);  
+	    }else if (window.URL != undefined) {  
+	        url = window.URL.createObjectURL(file);  
+	    }else if(window.webkitURL != undefined) {  
+	        url = window.webkitURL.createObjectURL(file);  
+	    }  
+	    return url;  
+	}
+</script>
+	</body>
+</html>

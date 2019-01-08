@@ -1,0 +1,124 @@
+@charset "UTF-8";
+.flexs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+html,body {
+    height: 100%;
+    overflow: hidden;
+    margin:0 auto;
+    position:relative;
+}
+body{
+    max-width:10rem;
+}
+.heads{
+    width:10rem;
+    padding-top:40px;
+    background-color: #fa6939;
+    box-shadow: 0rem 0rem 0.2rem 0rem rgba(164, 164, 164, 0.53);
+    >div{
+        width:100%;
+        height:1.25rem;
+        position:relative;
+        >.lefts{
+            width:1.3rem;
+            height:100%;
+            position:absolute;
+            left:0;
+            bottom:0;
+            color: #696969;
+            font-size:0.5rem;
+            @extend .flexs;
+        }
+        >.centers{
+            width:100%;
+            height:100%;
+            font-size:0.5rem;
+            @extend .flexs;
+        }
+        >.rights{
+            width:1.3rem;
+            height:100%;
+            position:absolute;
+            right:0;
+            bottom:0;
+            font-size:0.5rem;
+            @extend .flexs;
+        }
+    }
+}
+.sets{
+    width:100%;
+    overflow: auto;
+    text-align: center;
+    >div{
+        font-size:0.5rem;
+    }
+}
+.foots{
+    width:10rem;
+    height:1.5rem;
+    background:white;
+    position:absolute;
+    left:0;
+    bottom:0;
+    display: flex;
+    box-shadow: 0rem 0rem 0.2rem 0rem rgba(164, 164, 164, 0.53);
+    >div{
+        width:100%;
+        height:100%;
+        @extend .flexs;
+        display: flex;
+        flex-direction: column;
+        font:normal 0.32rem PingFang-SC-Regular;
+        >div{
+            font-size:0.64rem;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

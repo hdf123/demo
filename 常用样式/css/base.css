@@ -1,0 +1,38 @@
+*{
+	margin:0;
+	padding:0;
+	color: #333333;
+	list-style: none;
+	/*把此元素放置在父元素的中部。*/
+	vertical-align: middle;
+	box-sizing: border-box;
+	/*去除移动端特有的点击高亮效果*/
+    -webkit-tap-highlight-color: transparent;
+}
+img{
+	display: inline-block;
+	background:#eeeeee;
+}
+input{
+    /*1.清除文本框获取焦点时默认的边框阴影*/
+    outline: none;
+    /*2.去除边框*/
+    border: none;
+    /*3.添加边框*/
+   /* border: 1px solid #ccc;*/
+}
+/* 让链接默认不显示下划线， */
+a{
+    color: #333;
+    /*指针样式*/
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+    /*导致鼠标在页面活动时视频延迟变卡问题解决.*/
+    blr:expression(this.onFocus=this.blur());
+}
+/*隐藏滚动条*/
+::-webkit-scrollbar {
+    width:0 !important;
+}

@@ -1,0 +1,82 @@
+.flexs, .heads > div > .lefts, .heads > div > .centers, .heads > div > .rights, .foots > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+}
+
+body {
+  max-width: 10rem;
+}
+
+.heads {
+  width: 10rem;
+  padding-top: 40px;
+  background-color: #fa6939;
+  box-shadow: 0rem 0rem 0.2rem 0rem rgba(164, 164, 164, 0.53);
+}
+.heads > div {
+  width: 100%;
+  height: 1.25rem;
+  position: relative;
+}
+.heads > div > .lefts {
+  width: 1.3rem;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: #696969;
+  font-size: 0.5rem;
+}
+.heads > div > .centers {
+  width: 100%;
+  height: 100%;
+  font-size: 0.5rem;
+}
+.heads > div > .rights {
+  width: 1.3rem;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 0.5rem;
+}
+
+.sets {
+  width: 100%;
+  overflow: auto;
+  text-align: center;
+}
+.sets > div {
+  font-size: 0.5rem;
+}
+
+.foots {
+  width: 10rem;
+  height: 1.5rem;
+  background: white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  box-shadow: 0rem 0rem 0.2rem 0rem rgba(164, 164, 164, 0.53);
+}
+.foots > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font: normal 0.32rem PingFang-SC-Regular;
+}
+.foots > div > div {
+  font-size: 0.64rem;
+}
+
+/*# sourceMappingURL=aa.css.map */

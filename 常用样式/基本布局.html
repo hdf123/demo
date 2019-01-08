@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css/aa.css"/>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ajaxs.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<header class="heads">
+			<div>
+				<div class="iconfont icon-guanbi lefts"></div>
+				<div class="centers">标题</div>
+				<div class="iconfont icon-wode-active rights"></div>
+			</div>
+		</header>
+		<section class="sets">
+			
+		</section>
+		<footer class="foots">
+			<div class="aa" onclick="location.href='home.html'">
+				<div class="iconfont icon-shouye"></div>
+				首页
+			</div>
+			<div class="aa" onclick="location.href='classification.html'">
+				<div class="iconfont icon-ziliaoneirongguanli_huaban"></div>
+				咨询
+			</div>
+			<div class="aa" onclick="location.href='my.html'">
+				<div class="iconfont icon-wode"></div>
+				我的
+			</div>
+		</footer>
+		
+		
+<script type="text/javascript">
+	funkr();//获取头部和底部的总高度
+	for(var i=0;i<=30;i++){
+		$(".sets").append(`<div>${i}</div>`);
+	}
+</script>
+	</body>
+</html>
