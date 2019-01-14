@@ -106,6 +106,8 @@
         return val;
     }
 })(window, window['lib'] || (window['lib'] = {}));
+
+
 //ajax封装调用
 	var urs="http://x5wkyg.natappfree.cc";
 	function ajaxsd(url,async,type,data,suFn,erFn){
@@ -128,6 +130,7 @@
 	        }
 		});
 	}
+
 
 //上拉加载
 //_loadIndex 为请求的页数    _loadState为请求状态  0 可以请求  1 正在请求  2 请求结束
@@ -270,6 +273,8 @@
 		}
 		return timea;
 	}
+	
+	
 //textarea
 	function textareas(){
 		//设置 textarea 的高度随着 内容 增加 自适应
@@ -278,10 +283,14 @@
 		    $(this).height(this.scrollHeight);
 		})
 	}
+	
+	
 //loading
 	function loading(){
 		return html ='<div id="loading" style="width:100%;height:100%;background:#000000;filter:alpha(opacity=50);opacity:0.2;text-align:center;position:absolute;left:0px;top:0px;"><div style="width:32px;height:32px;position:fixed;top:45%;left:50%;margin-left:-16px;z-index:1000;"><img src="../img/loading.gif" /></div></div>';
 	}
+	
+	
 //图片加载失败时，动态添加也包含在内
 	function imgks(){
 		document.addEventListener("error", function (e) {
@@ -291,6 +300,8 @@
 		  }
 		}, true);
 	}
+	
+	
 //基础布局
 	function funkr(){
 		var ss=$(document.body).outerHeight(true);
