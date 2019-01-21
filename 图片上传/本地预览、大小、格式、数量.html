@@ -28,12 +28,13 @@
         	//图片大小
         	var size =$(this)[0].files[i].size / 1024;
         	console.log("图片大小="+size);
+        	console.log('图片大小为：' + size.toFixed(2) + 'KB');
         	if(extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg"){
 				console.log("1111111");
         	}else{
         		alert("请选择图像文件。");
         	}
-    		if(size > 1024*0.3){
+    		if(size > 1024*2){
     			alert('图片大小不能超过2M');
     			return false;
     		}else{
@@ -45,7 +46,7 @@
     		}
     	}
 	})
-	function getObjectURL(file) {  
+	function getObjectURL(file) {//本地路径
 	    var url = null;  
 	    if(window.createObjcectURL != undefined) {  
 	        url = window.createOjcectURL(file);  
