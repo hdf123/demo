@@ -124,10 +124,18 @@
 			obj.value="";
 		}
 	}
-	var str="sdfsdfsf,"
-	var reg=/,$/gi;
-    str=str.replace(reg,"");
-    console.log(str);
+//去除最后的逗号
+	var str0="sdfsdfsf-"
+	var reg=/-$/gi;
+    str0=str0.replace(reg,"");//去除最后的，-*等字符
+    console.log(str0);
+    
+    
+//替换全部逗号为-
+	var str1="sadfa,fdsf,sdfsd,sdf";
+	str1=str1.replace(/,/g,"-");
+	console.log(str1);
+    
 </script>
 	</body>
 </html>

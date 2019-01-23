@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>时间插件</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+		<link rel="stylesheet" type="text/css" href="shijian.css"/>
+		<style type="text/css">
+			.box{
+				text-align: center;
+			}
+			p{
+				padding-top: 50px;
+			}
+			.jsbox{
+				max-width: 500px;
+				text-align: left;
+				margin: 0 auto;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="box">
+			<p> 自定义起始年份 </p>
+			<input type="text"  id="input4" value="2018/06/01"/>
+			<div class="jsbox">
+				<pre class="prettyprint">
+				//可直接在 input 的 value 填写默认展示的时间， 不过需要在指定范围内
+				 $("#input4").shijian({
+				 	startYear:1989,
+				 	val:1989,
+				 	endYear:2017,
+				 	Hour:false,//是否显示小时
+				 	Minute:false,//是否显分钟
+				})
+				</pre>
+			</div>
+		</div>
+	</body>
+	<script src="jquer_shijian.js?ver=1" type="text/javascript" charset="utf-8"></script>
+
+	<script type="text/javascript">
+		$("#input4").shijian({
+			startYear:2016,
+			val:2016,
+			endYear:2022,
+			Hour:false,//是否显示小时
+ 			Minute:false,//是否显分钟
+		})
+	</script>
+</html>
