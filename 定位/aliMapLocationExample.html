@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body class="mui-fullscreen" >
+		</div>
+			<div id="aa"></div>
+			<div id="bb"></div>
+			<div id="cc"></div>
+			<div id="dd"></div>
+			<div id="ee">565</div>
+		<!-- MUI JS -->
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/castapp.js"></script>
+		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.10&key=311194415586a84a3dab215eec8b10bb&plugin=AMap.CitySearch"></script>
+		<script type="text/javascript">
+			ca.init();
+			//开启右滑回退页面
+			mui.init({
+				//安卓环境下关闭右滑
+				swipeBack: mui.os.ios ? true:false
+			});
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				self.setStyle({
+					'popGesture':'close'
+				});
+				getAddress();//获取当前位置
+			});
+			//获取当前位置
+			function getAddress(){
+				//高德地图API
+				//AMap.service解决只使用高德Geolocation功能提示Geolocation不是构造函数问题  
+				AMap.service(["AMap.Geolocation"],function(){
+					var geolocation = new AMap.Geolocation();
+					geolocation.getCurrentPosition(function(status,result) {
+						if(status=="complete"){
+//							locationVue.currentAddress=222; //设置当前地址 
+							$("#aa").html(result.formattedAddress);
+							$("#bb").html(result.addressComponent.citycode);
+							//设置当前经纬度
+							$("#cc").html(result.position.lng);
+							$("#dd").html(result.position.lat);
+						}else{
+							locationVue.currentAddress=result.message;
+						}
+					 });
+				});
+			}
+		</script>
+	</body>
+</html>
+    
