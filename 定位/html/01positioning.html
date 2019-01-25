@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.10&key=311194415586a84a3dab215eec8b10bb&plugin=AMap.CitySearch"></script>
+		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/castapp.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+<style>
+	div{
+		width:100%;
+		border:1px solid red;
+	}
+</style>
+	<body>
+		<div class="a1"></div>
+		<div class="a2"></div>
+		<div class="a3"></div>
+		<div class="a4"></div>
+		<div class="a5"></div>
+		<div class="a6"></div>
+<script type="text/javascript">
+	getAddress();
+	function getAddress(){
+		//高德地图API
+		//AMap.service解决只使用高德Geolocation功能提示Geolocation不是构造函数问题  
+		AMap.service(["AMap.Geolocation"],function(){
+			var geolocation = new AMap.Geolocation();
+			geolocation.getCurrentPosition(function(status,result) {
+				if(status=="complete"){
+					$(".a1").html(`城市=${result.addressComponent.city}`);
+					$(".a2").html(`地址=${result.formattedAddress}`);
+					$(".a3").html(`区号=${result.addressComponent.citycode}`);
+					console.log(JSON.stringify(result));
+					//设置当前经纬度
+					$(".a4").html(`纬度=${result.position.lng}`);
+					$(".a5").html(`经度=${result.position.lat}`);
+				}else{
+					$(".a6").html(`错误=${result.message}`);
+				}
+			 });
+		});
+	}
+</script>
+	</body>
+</html>

@@ -1,7 +1,12 @@
 {
-  "index.html": {
-    "refer": [
-      "aliMapLocationExample.html"
-    ]
-  }
+	"index.html": {
+		"resources": [
+			"html/定位01.html"
+		],
+		"refer": [
+			"html/定位01.html",
+			"html/a.html",
+			"html/01positioning.html"
+		]
+	}
 }

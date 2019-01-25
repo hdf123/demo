@@ -1,7 +1,7 @@
 {
     "@platforms": ["android", "iPhone", "iPad"],
-    "id": "H5FE73DEC",/*应用的标识，创建应用时自动生成，勿手动修改*/
-    "name": "ccc",/*应用名称，程序桌面图标名称*/
+    "id": "H5DFB65B1",/*应用的标识，创建应用时自动生成，勿手动修改*/
+    "name": "定位1",/*应用名称，程序桌面图标名称*/
     "version": {
         "name": "1.0",/*应用版本名称*/
         "code": ""
@@ -139,23 +139,22 @@
 	"dependencies": {
 		"pages": {
 			"index.html": {
-				"resources": [],
+				"resources": [
+					"html/定位01.html"
+				],
 				"refer": [
-					"aliMapLocationExample.html"
+					"html/a.html",
+					"html/01positioning.html"
 				],
 				"priority": 0
 			}
 		},
 		"idle": {
 			"resources": [
-				"js/mui.comm.js",
 				"js/castapp.js",
-				"css/feedback.css",
-				"js/mui.min.js",
-				"css/mui.min.css",
-				"aa.html",
-				"js/vue.min.js",
-				"css/mui.css"
+				"css/base.css",
+				"js/jquery.min.js",
+				"js/mui.min.js"
 			]
 		}
 	}
