@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+<style type="text/css"> 
+*{ 
+  	margin:0px; 
+  	padding:0px; 
+}
+#box{
+  	width:200px;
+  	height:200px;
+  	background-color:blue;
+  	padding:50px;
+  	position:absolute;
+  	top:100px;
+  	left:100px;
+}
+#inner{
+  	width:100px;
+  	height:100px;
+  	background-color:red;
+}
+span{color:red;}
+</style>
+	<body>
+  		<div id="box">
+    		<div id="inner"></div>
+  		</div>
+  		<div style="margin-top:420px;">
+	   		距离文档顶部距离:<span id="first"></span>
+	    	距离父元素顶部的距离:<span id="second"></span>
+	    	距离窗口顶部的距离:<span id="second"></span>
+  		</div>
+  		<input type="button" id="bt" value="点击显示结果">
+		
+<script type="text/javascript"> 
+	$(document).ready(function(){
+  		$("#bt").click(function(){
+     		$("#first").text($("#inner").offset().top); 
+     		$("#second").text($("#inner").position().top); 
+     		$("#third").text($("#inner").offset().top-$("body").scrollTop()); 
+  		})
+	})
+</script>
+	</body>
+</html>

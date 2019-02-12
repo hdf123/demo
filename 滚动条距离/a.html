@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>a</title>
+		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<p>请试着滚动 DIV 中的文本：</p>
+		<div style="width:200px;height:100px;overflow:scroll;">text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text.
+			<br /><br /> text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text. text.</div>
+		<p>滚动了 <span>0</span> 次。</p>
+		
+		
+<script type="text/javascript">
+	x=0;
+  	$("div").scroll(function() {
+  		var a=$(window).scrollTop();
+  		console.log(a);
+    	$("span").text(x+=1);
+  	});
+</script>
+	</body>
+
+</html>
