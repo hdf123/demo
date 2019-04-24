@@ -1,20 +1,25 @@
-1¡¢Ê×ÏÈ css½á¹¹ĞèÒª¸ü¸Ä£¬Í·²¿padding-top:40px;Áô³ö×´Ì¬À¸µÄÎ»ÖÃ
-2¡¢hbulider ÅäÖÃÎÄ¼şµÄ¸ü¸Ä
-£¨1£©£º"plus":{//ÔÚplusÖĞÌí¼Óstatusbar£¬42
+1ã€é¦–å…ˆ cssç»“æ„éœ€è¦æ›´æ”¹ï¼Œå¤´éƒ¨padding-top:40px;ç•™å‡ºçŠ¶æ€æ çš„ä½ç½®
+2ã€hbulider é…ç½®æ–‡ä»¶çš„æ›´æ”¹
+ï¼ˆ1ï¼‰ï¼š"plus":{//åœ¨plusä¸­æ·»åŠ statusbarï¼Œ42
 		"statusbar":{
-    			"immersed": true //Í¸Ã÷×´Ì¬À¸ 
+    			"immersed": true //é€æ˜çŠ¶æ€æ  
     		},
 	}
 	
 
-£¨2£©£º"apple": {//ÔÚappleÖĞÈÎÒâÎ»ÖÃÌí¼Ó£¬54
+ï¼ˆ2ï¼‰ï¼š"apple": {//åœ¨appleä¸­ä»»æ„ä½ç½®æ·»åŠ ï¼Œ54
       
                "UIReserveStatusbarOffset":true,
                 
             },
 
-£¨3£©£º"google": {//ÔÚgoogleÖĞÈÎÒâÎ»ÖÃÌí¼Ó£¬64
+ï¼ˆ3ï¼‰ï¼š"google": {//åœ¨googleä¸­ä»»æ„ä½ç½®æ·»åŠ ï¼Œ64
                
                "ImmersedStatusbar":true,
               
             },
+
+
+
+<!--indexä¸­åŠ å…¥-->
+<!--plus.navigator.setStatusBarBackground('#FF0000'); //ä¿®æ”¹çŠ¶æ€æ èƒŒæ™¯è‰²-->
