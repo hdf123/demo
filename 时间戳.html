@@ -10,6 +10,7 @@
 //	1.0
 	var timestamp=new Date().getTime();//当前时间戳
 	getMyDate(timestamp);
+	console.log(getMyDate(timestamp));//2019-05-25 09:02:36:305
   	function getMyDate(str){
         var oDate = new Date(str),
             oYear = oDate.getFullYear(),//年
@@ -35,7 +36,7 @@
 	//时间戳转换 返回年-月-日
 	var time=new Date().getTime();//当前时间戳
 	console.log(time);
-	console.log(getDate(time));
+	console.log(getDate(time));//2019-5-25
 	function getDate(tm){ 
 		var tt = new Date(tm).toLocaleString().replace(/\//g, "-");
 		tt = tt.split(" ");
@@ -43,7 +44,7 @@
 	}
 
 	//时间戳转换 返回到年-月-日-分钟
-	console.log(allDate(time));
+	console.log(allDate(time));//2019年5月25日 上午08时53分
 	function allDate(tm) { 
 		var tt = new Date(tm).toLocaleString().replace(/\//g, "-");
 		tt = tt.split(" ");
@@ -109,7 +110,7 @@
 	var timeas="2018-11-16T07:59:18.000+0000";
 	var dateee = new Date().toJSON(timeas);
 	var date = new Date(+new Date(dateee)+8*3600*1000).toISOString().replace(/T/g,' ').replace(/\.[\d]{3}Z/,'');
-	console.log(date); 
+	console.log(date); //2019-05-25 08:53:31
 </script>
 	</body>
 </html>
