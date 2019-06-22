@@ -52,18 +52,17 @@
 				observeParents:true,//修改swiper的父元素时，自动初始化swiper
 				on:{
 				    slideChangeTransitionStart: function(my){//swiper4中使用
-				      	var xiabiao=this.realIndex;//循环状态下获取下标
-			        	console.log(xiabiao);
-			        	$("#uu1>li").eq(xiabiao).css("color","red");
-			        	$("#uu1>li").eq(xiabiao).siblings().css("color","black");
+				      	var subscript=this.realIndex;//循环状态下获取下标
+			        	console.log(subscript);
+			        	$("#uu1>li").eq(subscript).css("color","red");
+			        	$("#uu1>li").eq(subscript).siblings().css("color","black");
 				    },
 				},
 				/*onSlideChangeStart:function(swiper){//swiper3中使用
-//		        	var xiabiao=swiper.activeIndex;
-			        var xiabiao=swiper.realIndex;//循环状态下获取下标
-			        console.log(1);
-			        $("#uu1>li").eq(xiabiao).css("color","red");
-			        $("#uu1>li").eq(xiabiao).siblings().css("color","black");
+//		        	var subscript=swiper.activeIndex;
+			        var subscript=swiper.realIndex;//循环状态下获取下标
+			        $("#uu1>li").eq(subscript).css("color","red");
+			        $("#uu1>li").eq(subscript).siblings().css("color","black");
 			   }*/
 				onClick: function(swiper) {
 					console.log(swiper.clickedSlide.attributes["as"].nodeValue);  
@@ -71,10 +70,10 @@
 			})
 			$("#uu1>li").click(function(){
 				console.log(my.realIndex);
-			    var zuobiao=$(this).index();
-			    $("#uu1>li").eq(zuobiao).css("color","blue");
-			    $("#uu1>li").eq(zuobiao).siblings().css("color","black");
-			    my.slideTo(zuobiao+1,500,false);
+			    var subscript=$(this).index();
+			    $("#uu1>li").eq(subscript).css("color","blue");
+			    $("#uu1>li").eq(subscript).siblings().css("color","black");
+			    my.slideTo(subscript+1,500,false);
 			})
 		</script>
 	</body>
