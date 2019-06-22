@@ -34,7 +34,7 @@
 	<body>
 		<div class="swiper-container" id="swiper1">
 			<div class="swiper-wrapper">
-				<div class="swiper-slide">slider1</div>
+				<div class="swiper-slide" ak="49">slider1</div>
 				<div class="swiper-slide">slider2</div>
 				<div class="swiper-slide">slider3</div>
 			</div>
@@ -57,7 +57,7 @@
 			        	$("#uu1>li").eq(xiabiao).css("color","red");
 			        	$("#uu1>li").eq(xiabiao).siblings().css("color","black");
 				    },
-				}
+				},
 				/*onSlideChangeStart:function(swiper){//swiper3中使用
 //		        	var xiabiao=swiper.activeIndex;
 			        var xiabiao=swiper.realIndex;//循环状态下获取下标
@@ -65,6 +65,9 @@
 			        $("#uu1>li").eq(xiabiao).css("color","red");
 			        $("#uu1>li").eq(xiabiao).siblings().css("color","black");
 			   }*/
+				onClick: function(swiper) {
+					console.log(swiper.clickedSlide.attributes["as"].nodeValue);  
+				} 
 			})
 			$("#uu1>li").click(function(){
 				console.log(my.realIndex);
