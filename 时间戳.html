@@ -25,10 +25,11 @@
     };
     //补0操作
     function getzf(num){
-        if(parseInt(num) < 10){
-            num = '0'+num;
-        }
+        //if(parseInt(num) < 10){
+        //    num = '0'+num;
+        //}
         return num;
+		return num< 10 ? '0' + num:num;
     }
     
     
