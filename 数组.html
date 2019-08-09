@@ -43,6 +43,11 @@
 	console.log(removeWithoutCopy(arr1,item));
 	
 //	2.0
+	var yearArray = new Array(2009, 2009, 2010, 2010, 2009, 2010);
+	console.log(heavy(yearArray));
+	function heavy(heavy){
+		return Array.from(new Set(heavy));
+	}
 </script>
 	</body>
 </html>
